@@ -1,17 +1,8 @@
-# WebGauntlet
+# React + Vite
 
-A React-based e-commerce application that demonstrates security vulnerabilities and best practices.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Project Structure
-- `webgauntlet/`: Main application code
-- `ecommerce-store/`: Reference implementation of a secure e-commerce store
+Currently, two official plugins are available:
 
-## Setup
-1. Install dependencies: `npm install`
-2. Start the development server: `npm start`
-
-## Features
-- Product listing and details
-- Shopping cart functionality
-- User reviews and ratings
-- Security demonstration components
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

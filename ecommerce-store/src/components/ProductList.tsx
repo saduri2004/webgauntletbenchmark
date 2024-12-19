@@ -531,7 +531,7 @@ const ProductList: React.FC = () => {
                       color: 'rgba(139, 69, 19, 0.9)'
                     }}
                   >
-                    ${product.price.toFixed(2)}
+                    ${(product.price * 10).toFixed(2)}
                   </Typography>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                     <Button

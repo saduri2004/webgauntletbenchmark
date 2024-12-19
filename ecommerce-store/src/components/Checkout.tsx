@@ -218,6 +218,10 @@ const Checkout = () => {
     </Grid>
   );
 
+  const calculateTotal = () => {
+    return cartItems.reduce((total, item) => total + (item.price * item.quantity * 10), 0);
+  };
+
   const OrderSummary = () => (
     <Box>
       <Typography variant="h6" gutterBottom>
@@ -228,13 +232,13 @@ const Checkout = () => {
           <Typography>
             {item.name} x {item.quantity}
           </Typography>
-          <Typography>${(item.price * item.quantity).toFixed(2)}</Typography>
+          <Typography>${(item.price * 10).toFixed(2)}</Typography>
         </Box>
       ))}
       <Divider sx={{ my: 2 }} />
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Typography variant="h6">Total</Typography>
-        <Typography variant="h6">${cartTotal.toFixed(2)}</Typography>
+        <Typography variant="h6">${calculateTotal().toFixed(2)}</Typography>
       </Box>
 
       <Box sx={{ mt: 3 }}>

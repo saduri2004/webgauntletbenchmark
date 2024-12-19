@@ -28,6 +28,14 @@ const Cart: React.FC = () => {
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const total = useSelector((state: RootState) => state.cart.total);
 
+  const calculateItemTotal = (item: any) => {
+    return (item.price * item.quantity * 10).toFixed(2);
+  };
+
+  const calculateTotal = () => {
+    return cartItems.reduce((total: number, item: any) => total + (item.price * item.quantity * 10), 0);
+  };
+
   if (cartItems.length === 0) {
     return (
       <Container sx={{ py: 8, textAlign: 'center' }}>
@@ -71,7 +79,7 @@ const Cart: React.FC = () => {
                       {item.name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      ${item.price.toFixed(2)}
+                      ${(item.price * 10).toFixed(2)}
                     </Typography>
                   </Grid>
                   <Grid item xs={3}>
@@ -104,7 +112,7 @@ const Cart: React.FC = () => {
                   <Grid item xs={2}>
                     <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                       <Typography variant="subtitle1" sx={{ mr: 2 }}>
-                        ${(item.price * item.quantity).toFixed(2)}
+                        {calculateItemTotal(item)}
                       </Typography>
                       <IconButton
                         color="error"
@@ -130,7 +138,7 @@ const Cart: React.FC = () => {
               
               <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
                 <Typography>Subtotal</Typography>
-                <Typography>${total.toFixed(2)}</Typography>
+                <Typography>${calculateTotal().toFixed(2)}</Typography>
               </Box>
               
               <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
@@ -143,7 +151,7 @@ const Cart: React.FC = () => {
               <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 3 }}>
                 <Typography variant="h6">Total</Typography>
                 <Typography variant="h6" color="primary">
-                  ${total.toFixed(2)}
+                  ${calculateTotal().toFixed(2)}
                 </Typography>
               </Box>
 

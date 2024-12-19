@@ -24,16 +24,16 @@ start_app() {
 
 # Kill ports first
 kill_port 3000   # Search Engine
-kill_port 5173   # WebGauntlet
-kill_port 5174   # Ecommerce Store
-kill_port 5175   # Middle Store
+kill_port 3001   # WebGauntlet
+kill_port 3002   # Ecommerce Store
+kill_port 3003   # Middle Store
 
 # Start applications in separate terminal windows
 osascript -e 'tell application "Terminal"
     do script "cd /Users/sasankaduri/WebGauntlet/search-engine && PORT=3000 npm start"
-    do script "cd /Users/sasankaduri/WebGauntlet/webgauntlet && PORT=5173 npm run dev"
-    do script "cd /Users/sasankaduri/WebGauntlet/ecommerce-store && PORT=5174 npm run dev"
-    do script "cd /Users/sasankaduri/WebGauntlet/middle-store && PORT=5175 npm run dev"
+    do script "cd /Users/sasankaduri/WebGauntlet/webgauntlet && PORT=3001 npm run dev"
+    do script "cd /Users/sasankaduri/WebGauntlet/ecommerce-store && PORT=3002 npm run dev"
+    do script "cd /Users/sasankaduri/WebGauntlet/middle-store && PORT=3003 npm run dev"
 end tell'
 
 echo "Applications started in separate terminal windows."

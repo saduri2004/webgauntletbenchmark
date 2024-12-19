@@ -244,7 +244,7 @@ const ProductDetail: React.FC = () => {
 
           <Box sx={{ mb: 3 }}>
             <Typography variant="h5" color="primary">
-              ${calculateCurrentPrice().toFixed(2)}
+              ${(calculateCurrentPrice() * 10).toFixed(2)}
             </Typography>
             {product.originalPrice && product.originalPrice !== product.price && (
               <Typography
@@ -255,7 +255,7 @@ const ProductDetail: React.FC = () => {
                   fontSize: '1rem'
                 }}
               >
-                ${product.originalPrice.toFixed(2)}
+                ${(product.originalPrice * 10).toFixed(2)}
               </Typography>
             )}
           </Box>
